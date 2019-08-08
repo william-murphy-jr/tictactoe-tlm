@@ -29,6 +29,11 @@ ol, ul {
   display: table;
 }
 
+.game {
+  width: 500px;
+  margin: 0 auto;
+}
+
 .status {
   margin-bottom: 10px;
 }
@@ -40,12 +45,12 @@ ol, ul {
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
+  height: 100px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 100px;
 }
 
 .square:focus {
