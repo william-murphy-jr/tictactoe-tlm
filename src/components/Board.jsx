@@ -11,8 +11,10 @@ class Board extends React.Component {
   }
 
   handleClick(i) {
-    console.log('handleClick');
     const squares = this.state.squares.slice();
+    if (this.calculateWinner(squares) || squares[i]) {
+      return;
+    }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
@@ -54,13 +56,13 @@ class Board extends React.Component {
     return null;
   }
   
+  // This function helps clean the board code up
   renderSquare(i) {
     return <Square
       value = { this.state.squares[i] }
       handleClick = { () => { this.handleClick(i) } }
     />;
   }
-  
   
   render() {
     const winner = this.calculateWinner(this.state.squares);
@@ -81,8 +83,8 @@ class Board extends React.Component {
           {this.renderSquare(2)}
         </div>
         <div className="board-row">
-          {this.renderSquare(4)}
           {this.renderSquare(3)}
+          {this.renderSquare(4)}
           {this.renderSquare(5)}
         </div>
         <div className="board-row">
@@ -95,4 +97,4 @@ class Board extends React.Component {
   }
 }
 
-  export default Board;
+export default Board;
