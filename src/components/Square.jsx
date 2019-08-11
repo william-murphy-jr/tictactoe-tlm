@@ -1,12 +1,20 @@
 import React from 'react';
 
-const Square = (props) => {
-  console.log('props.value: ', props.value)
-      return (
-        <button className="square">
-          { props.value }
-        </button>
-      );
-    }
+class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  export default Square;
+  // console.log('props.value: ', props.value)÷
+  render() {
+    return (
+      <button className="square" onClick ={ () => {this.setState({ value: "X" })} } >
+        { this.state.value }
+      </button>
+    );
+
+  }
+}
+
+export default Square;
