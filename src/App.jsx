@@ -9,12 +9,14 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      history: [{
         squares: Array(9).fill(null),
-        xIsNext: true,
-      }
-      this.handleClick = this.handleClick.bind(this);
-      this.resetGame = this.resetGame.bind(this);
+      }],
+      xIsNext: true,
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.resetGame = this.resetGame.bind(this);
+  }
   
   calculateWinner(squares) {
     // console.log('calculateWinner');
@@ -50,13 +52,17 @@ class Game extends React.Component {
   }
 
   handleClick(i) {
-    const squares = this.state.squares.slice();
+    const history = this.state.history;
+    const current = history[history.length - 1];
+    const squares = current.squares.slice();
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
-      squares: squares,
+      history: history.concat([{
+        squares: squares,
+      }]),
       xIsNext: !this.state.xIsNext,
     });
   }
@@ -70,7 +76,9 @@ class Game extends React.Component {
   }
 
   render() {
-    const winner = this.calculateWinner(this.state.squares);
+    const history = this.state.history;
+    const current = history[history.length - 1];
+    const winner = this.calculateWinner(current.squares);
 
     let status;
     if (winner) {
@@ -84,7 +92,7 @@ class Game extends React.Component {
         <div className="game-board">
           <h1 className="game-title">Tic Tac Toe</h1>
           <Board
-            squares={this.state.squares}
+            squares={current.squares}
             handleClick={(i) => this.handleClick(i)}
           />
           <Button onClick={ this.resetGame }
