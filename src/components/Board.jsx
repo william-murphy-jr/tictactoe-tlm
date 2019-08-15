@@ -1,12 +1,12 @@
 import React from 'react';
 import Square from './Square';
 
-const Board = (props) => {
+const Board = ({ squares, handleClick }) => {
   // This function helps clean the boards Square code up
   const renderSquare = (i) => {
     return <Square
-      value = { props.squares[i] }
-      handleClick = { () => { props.handleClick(i) } }
+      value = { squares[i] }
+      handleClick = { () => { handleClick(i) } }
     />;
   }
   

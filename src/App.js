@@ -2,6 +2,8 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Board from './components/Board';
+import Button from './components/Button';
+
 
 class Game extends React.Component {
   constructor(props) {
@@ -10,9 +12,10 @@ class Game extends React.Component {
         squares: Array(9).fill(null),
         xIsNext: true,
       }
-  }
+      this.handleClick = this.handleClick.bind(this);
+      this.resetGame = this.resetGame.bind(this);
+    }
   
-
   calculateWinner(squares) {
     // console.log('calculateWinner');
     const winCombos = [
@@ -58,6 +61,14 @@ class Game extends React.Component {
     });
   }
 
+  resetGame(e) {
+    e.preventDefault();
+    this.setState({
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    });
+  }
+
   render() {
     const winner = this.calculateWinner(this.state.squares);
 
@@ -71,10 +82,13 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-        <h1 className="game-title">Tic Tac Toe</h1>
+          <h1 className="game-title">Tic Tac Toe</h1>
           <Board
             squares={this.state.squares}
             handleClick={(i) => this.handleClick(i)}
+          />
+          <Button onClick={ this.resetGame }
+            className={'reset-game'}
           />
         </div>
         <div className="game-info">

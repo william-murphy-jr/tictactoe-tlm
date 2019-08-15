@@ -68,3 +68,10 @@ ol, ul {
 .game-title {
   text-align: center;
 }
+
+.reset-game {
+  display: block;
+  width: 125px;
+  font-size: 20px;
+  margin: 25px auto;
+}
