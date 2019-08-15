@@ -13,6 +13,7 @@ class Game extends React.Component {
         squares: Array(9).fill(null),
       }],
       xIsNext: true,
+      moveCount: 0,
     }
     this.handleClick = this.handleClick.bind(this);
     this.resetGame = this.resetGame.bind(this);
@@ -44,6 +45,7 @@ class Game extends React.Component {
       // null   && null === null && null === null
       // false  &&      true     &&      true 
       // which is false;
+      // --wmj
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
@@ -64,7 +66,8 @@ class Game extends React.Component {
         squares: squares,
       }]),
       xIsNext: !this.state.xIsNext,
-    });
+      moveCount: this.state.moveCount + 1,
+    }, () => console.log(this.state.moveCount));
   }
 
   resetGame(e) {
@@ -74,6 +77,7 @@ class Game extends React.Component {
         squares: Array(9).fill(null),
       }],
       xIsNext: true,
+      moveCount: 0,
     });
   }
 
