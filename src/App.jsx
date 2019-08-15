@@ -8,10 +8,12 @@ import Button from './components/Button';
 class Game extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    his.state = {
+      history: [{
         squares: Array(9).fill(null),
-        xIsNext: true,
-      }
+      }],
+      xIsNext: true,
+    }
       this.handleClick = this.handleClick.bind(this);
       this.resetGame = this.resetGame.bind(this);
     }
