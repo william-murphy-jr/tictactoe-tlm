@@ -72,10 +72,11 @@ class Game extends React.Component {
 
   render() {
     const winner = this.calculateWinner(this.state.squares);
-
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
+    } else if (this.state.squares.every(square => square)) {
+      status = 'Tie game';
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
