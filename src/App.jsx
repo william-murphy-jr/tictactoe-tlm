@@ -3,8 +3,6 @@ import React from 'react';
 import './App.css';
 import Board from './components/Board';
 import Button from './components/Button';
-import { blockParams } from 'handlebars';
-
 
 class Game extends React.Component {
   constructor(props) {
