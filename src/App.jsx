@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Board from './components/Board';
 import Button from './components/Button';
+import { blockParams } from 'handlebars';
 
 
 class Game extends React.Component {
@@ -87,13 +88,13 @@ class Game extends React.Component {
             squares={this.state.squares}
             handleClick={(i) => this.handleClick(i)}
           />
+          <div className="game-info">
+            <span className="game-info-text">{status}</span>
+            <ol>{/* TODO */}</ol>
+          </div>
           <Button onClick={ this.resetGame }
             className={'reset-game'}
           />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );

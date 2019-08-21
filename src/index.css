@@ -61,12 +61,19 @@ ol, ul {
 }
 
 .game-info {
-  margin-top: 70px;
-  margin-left: 25px;
+  margin-top: 28px;
+  /* margin-left: 25px; */
 }
 
 .game-title {
   text-align: center;
+}
+
+.game-info-text {
+  width: 98px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .reset-game {
