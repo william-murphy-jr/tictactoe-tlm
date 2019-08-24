@@ -2,7 +2,8 @@ import React from 'react';
 import Square from './Square';
 
 const Board = ({ squares, handleClick }) => {
-  // This function helps clean the boards Square code up
+  // The renderSquare function helps make the Board code
+  // more legible the boards Square code up
   const renderSquare = (i) => {
     return <Square
       value = { squares[i] }

@@ -3,8 +3,6 @@ import React from 'react';
 import './App.css';
 import Board from './components/Board';
 import Button from './components/Button';
-import { blockParams } from 'handlebars';
-
 
 class Game extends React.Component {
   constructor(props) {
@@ -17,8 +15,9 @@ class Game extends React.Component {
       this.resetGame = this.resetGame.bind(this);
     }
   
+  // This function returns "X", "O" or null if there is no winner
   calculateWinner(squares) {
-    // console.log('calculateWinner');
+    // All game winning combinations
     const winCombos = [
       [0, 1, 2],
       [3, 4, 5],
@@ -50,36 +49,30 @@ class Game extends React.Component {
     return null;
   }
 
+  // When key is clicked you will want to do something
   handleClick(i) {
     const squares = this.state.squares.slice();
+    // This if statement prevents any action if the squares
+    //  already has been checked or there is already a winner
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
+    /** Fill Me In */
   }
 
+  // When the game is over you will want to reset the game.
   resetGame(e) {
     e.preventDefault();
-    this.setState({
-      squares: Array(9).fill(null),
-      xIsNext: true,
-    });
+    /*  Fill Me In */
   }
 
   render() {
     const winner = this.calculateWinner(this.state.squares);
     let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else if (this.state.squares.every(square => square)) {
-      status = 'Tie game';
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
+    
+    // You will need to have status return the appropriate string
+    // To indicate which player's turn it is.
+    status = 'Next player: ' + 'X' ;
 
     return (
       <div className="game">
@@ -91,7 +84,7 @@ class Game extends React.Component {
           />
           <div className="game-info">
             <span className="game-info-text">{status}</span>
-            <ol>{/* TODO */}</ol>
+            <ol>{/* Advanced Section for Game History */}</ol>
           </div>
           <Button onClick={ this.resetGame }
             className={'reset-game'}

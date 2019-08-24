@@ -58,11 +58,16 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  background-color: cornsilk;
 }
 
 .game-info {
   margin-top: 28px;
   /* margin-left: 25px; */
+}
+
+.game-board {
+  margin: 50px auto;
 }
 
 .game-title {
