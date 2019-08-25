@@ -117,7 +117,7 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <h1 className="game-title">Tic Tac Toe</h1>
+          <h1 className="game-title">Tic Tac Toe <span style={{ fontWeight: 'lighter'}}>(Advanced)</span></h1>
           <Board
             squares={current.squares}
             handleClick={(i) => this.handleClick(i)}
