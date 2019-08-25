@@ -58,15 +58,27 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  background-color: cornsilk;
 }
 
 .game-info {
-  margin-top: 70px;
-  margin-left: 25px;
+  margin-top: 28px;
+  /* margin-left: 25px; */
+}
+
+.game-board {
+  margin: 50px auto;
 }
 
 .game-title {
   text-align: center;
+}
+
+.game-info-text {
+  width: 98px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .reset-game {
@@ -74,4 +86,8 @@ ol, ul {
   width: 125px;
   font-size: 20px;
   margin: 25px auto;
+}
+
+.history {
+  margin-right: 1.25rem;
 }

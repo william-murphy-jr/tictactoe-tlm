@@ -121,13 +121,13 @@ class Game extends React.Component {
             squares={current.squares}
             handleClick={(i) => this.handleClick(i)}
           />
+          <div>{status}</div>
           <Button onClick={ this.resetGame }
             className={'reset-game'}
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
-          <ol>{ moves }</ol>
+          <ol className="history">{ moves }</ol>
         </div>
       </div>
     );
