@@ -96,12 +96,12 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
-    const moves = history.map((step, move) => {
-    
+
+    const moves = history.map((step, move) => {    
       const description = move ? `Go to move # ${move}` : `Go to game start`;
       return (
         <li key={ move }>
-          <button onClick={ () => this.jumpTo(move) }>{ description }</button>
+          <button className="btn-history" conClick={ () => this.jumpTo(move) }>{ description }</button>
         </li>
       );
     });
@@ -118,10 +118,12 @@ class Game extends React.Component {
         <div className="game-board">
           <h1 className="game-title">Tic Tac Toe</h1>
           <Board
-            squares={current.squares}
+            squares={current.squares}            
             handleClick={(i) => this.handleClick(i)}
           />
-          <div>{status}</div>
+          <div className="game-info">
+            <span className="game-info-text">{status}</span>            
+          </div>
           <Button onClick={ this.resetGame }
             className={'reset-game'}
           />
