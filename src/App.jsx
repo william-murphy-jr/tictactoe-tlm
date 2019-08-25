@@ -96,8 +96,16 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
-    const moves = history.map((step, move) => {
-    
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    } else if (current.squares.every(square => square)) {
+      status = 'Tie game';
+    } else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    }
+
+    const moves = history.map((step, move) => {    
       const description = move ? `Go to move # ${move}` : `Go to game start`;
       return (
         <li key={ move }>
@@ -105,13 +113,6 @@ class Game extends React.Component {
         </li>
       );
     });
-
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
 
     return (
       <div className="game">

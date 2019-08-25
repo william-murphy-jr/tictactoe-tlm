@@ -90,4 +90,9 @@ ol, ul {
 
 .history {
   margin-right: 1.25rem;
+  margin-top: 5.75rem;
+}
+
+.btn-history {
+  width: 7rem;
 }
