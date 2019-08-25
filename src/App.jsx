@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css';
 import Board from './components/Board';
 import Button from './components/Button';
-import { blockParams } from 'handlebars';
 
 
 class Game extends React.Component {
@@ -86,8 +85,8 @@ class Game extends React.Component {
         <div className="game-board">
           <h1 className="game-title">Tic Tac Toe</h1>
           <Board
-            squares={this.state.squares}
-            handleClick={(i) => this.handleClick(i)}
+            squares={ this.state.squares}
+            handleClick={ (i) => this.handleClick(i) }
           />
           <div className="game-info">
             <span className="game-info-text">{status}</span>

@@ -67,11 +67,12 @@ ol, ul {
 }
 
 .game-board {
-  margin: 50px auto;
+  margin: 25px auto;
 }
 
 .game-title {
   text-align: center;
+  margin-bottom: 32px;
 }
 
 .game-info-text {
